@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "395557509622",
+    "project_id": "truth-or-dare-application",
+    "storage_bucket": "truth-or-dare-application.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:395557509622:android:3327d5e048406f983b0fd7",
+        "android_client_info": {
+          "package_name": "com.manacher.hammer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "395557509622-n6bot1uv4tf08qmslnofbg731trldljv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.manacher.hammer",
+            "certificate_hash": "5cde9003ac7159581ac08294cdaa14c9deeb1cbc"
+          }
+        },
+        {
+          "client_id": "395557509622-qsp3h4cqu3t8vdv3bqeu7lkiv6k80b7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVS4KfvDoTrh8rVdxzHzGFLSePXLTCO5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "395557509622-qsp3h4cqu3t8vdv3bqeu7lkiv6k80b7k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

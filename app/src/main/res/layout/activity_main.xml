@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".Activities.MainActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="45sp"
+            android:textStyle="bold"
+            android:textColor="@color/google_green"
+            android:background="#00FFFFFF"
+            android:text="@string/play"/>
+
+        <Button
+            android:id="@+id/multiplayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/google_blue"
+            android:background="#00FFFFFF"
+            android:text="@string/multiPlayer"/>
+
+        <Button
+            android:id="@+id/options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:textColor="@color/google_yellow"
+            android:background="#00FFFFFF"
+            android:text="@string/options"/>
+
+        <Button
+            android:id="@+id/settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:textColor="@color/grey"
+            android:background="#00FFFFFF"
+            android:text="@string/settings"/>
+    </LinearLayout>
+
+</RelativeLayout>
