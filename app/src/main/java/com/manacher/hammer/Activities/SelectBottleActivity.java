@@ -8,14 +8,14 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.manacher.hammer.R;
-import com.manacher.hammer.Utils.BottleAdapter;
-import com.manacher.hammer.Utils.Routing;
+import com.manacher.hammer.Utils.PreferencesUtil;
 import com.manacher.hammer.Utils.Util;
+import com.manacher.hammer.adapters.BottleAdapter;
+import com.manacher.hammer.models.Bottle;
 
 public class SelectBottleActivity extends AppCompatActivity {
     private BottleAdapter adapter;
     private GridView gridView;
-    private Routing routing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,25 +26,36 @@ public class SelectBottleActivity extends AppCompatActivity {
     }
 
     private void initialized(){
-        gridView = findViewById(R.id.listView);
-        adapter = new BottleAdapter(this, Util.getBottleList(this));
+        gridView = findViewById(R.id.recyclerView);
+        adapter = new BottleAdapter(this, SplashActivity.bottles);
         gridView.setAdapter(adapter);
-        routing = new Routing(this);
 
         adapter.notifyDataSetChanged();
     }
 
     private void listener(){
+        PreferencesUtil preferencesUtil = new PreferencesUtil(this);
+
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, final int position, long l) {
 
-//                routing.appendParams("position", position);
-//                routing.navigate(SpinBottleActivity.class, false);
+                Bottle bottle = SplashActivity.bottles.get(position);
 
-                SplashActivity.SELECTED_BOTTLE = position;
-                onBackPressed();
+                if(bottle.isLock()){
+                    if(Util.USER.getOwnBottles().contains(position)){
+                        SplashActivity.SELECTED_BOTTLE = position;
+                        preferencesUtil.saveInt(position, "SELECTED_BOTTLE");
+                        adapter.notifyDataSetChanged();
+                    }else{
 
+                    }
+
+                }else{
+                    SplashActivity.SELECTED_BOTTLE = position;
+                    preferencesUtil.saveInt(position, "SELECTED_BOTTLE");
+                    adapter.notifyDataSetChanged();
+                }
             }
         });
     }

@@ -9,8 +9,8 @@ android {
         applicationId "com.manacher.hammer"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 1
-        versionName "1.0"
+        versionCode 101
+        versionName "1.1"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -30,6 +30,11 @@ android {
         cleanedAnnotations
         compile.exclude group: 'org.jetbrains' , module:'annotations'
     }
+
+
+    lintOptions {
+        checkReleaseBuilds false
+    }
 }
 
 dependencies {
@@ -37,17 +42,52 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     //AndroidRTC
-    implementation 'com.github.avirajrajput:AndroidRTC:0.0.7'
+    implementation 'com.github.avirajrajput:AndroidRTC:0.0.8'
     implementation 'org.webrtc:google-webrtc:1.0.32006'
 
     // Firestore
     implementation 'com.firebaseui:firebase-ui-firestore:6.3.0'
 
+    // Firebase Auth
+    implementation 'com.firebaseui:firebase-ui-auth:6.3.0'
+
+    //Firebase Storage
+    implementation 'com.google.firebase:firebase-storage:20.0.0'
+
     // Fire-Services
-    implementation 'com.github.avirajrajput:Fire-Services:0.0.2'
+    implementation 'com.github.avirajrajput:Fire-Services:0.0.7'
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+
+    //Code Picker
+    implementation 'com.hbb20:ccp:2.4.0'
+    implementation 'com.github.joielechong:countrycodepicker:2.4.2'
+
+    //cropping
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+
+    //Google Auth
+    implementation platform('com.google.firebase:firebase-bom:29.0.4')
+
+    //Navigation Component
+    def nav_version = "2.1.0-alpha06"
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+
+    implementation "com.google.android.gms:play-services-location:15.0.1"
+
+
+    //adMob
+    implementation 'com.google.android.gms:play-services-ads:20.4.0'
+    implementation project(':nativetemplates')
+
+    //Gson
+    implementation 'com.google.code.gson:gson:2.8.8'
 }

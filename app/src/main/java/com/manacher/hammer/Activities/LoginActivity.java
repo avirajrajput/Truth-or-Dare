@@ -1,65 +1,89 @@
 package com.manacher.hammer.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.navigation.NavController;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.manacher.fireauthservice.FireAuthService;
+import com.manacher.firestoreservice.FireStoreService;
 import com.manacher.hammer.R;
+import com.manacher.hammer.Utils.Routing;
+import com.manacher.hammer.Utils.Util;
+import com.manacher.hammer.models.User;
 import com.manacher.phoneauthentication.services.AuthListener;
 import com.manacher.phoneauthentication.services.PhoneAuthentication;
 
-public class LoginActivity extends AppCompatActivity implements AuthListener {
 
-    private PhoneAuthentication phoneAuthentication;
-    private EditText editText;
-    private TextView status;
-    private Button submit;
+public class LoginActivity extends AppCompatActivity implements AuthListener {
+    public NavController navController;
+    public PhoneAuthentication authentication;
+    public boolean phoneAuth;
+    private FireAuthService fireAuthService;
+    private Routing routing;
+    private  FireStoreService fireStoreService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        fireAuthService = new FireAuthService();
+        fireStoreService = new FireStoreService();
 
-        phoneAuthentication = new PhoneAuthentication(this, "Aviraj", Uri.parse(""));
-
-        phoneAuthentication.sendVerificationCode("+918126460072");
-
-        this.initialized();
-        this.listener();
-    }
-
-    private void initialized(){
-        editText = findViewById(R.id.editText);
-        status = findViewById(R.id.status);
-        submit = findViewById(R.id.submit);
-    }
-
-    private void listener(){
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String code = String.valueOf(editText.getText());
-                phoneAuthentication.verifyCode(code);
-            }
-        });
+        routing = new Routing(this);
     }
 
     @Override
-    public void onSuccess(String userId) {
-        Log.d("YYAG7", "onSuccess: "+userId);
-        status.setText("onSuccess: "+userId);
+    public void authSuccessFul(Task<AuthResult> task) {
+        navigate();
     }
 
     @Override
-    public void onFailure() {
-        Log.d("YYAG7", "onFailure: ");
-        status.setText("onFailure");
+    public void fireUserUpdated(String userId) {
+        makeUser();
+    }
+
+    @Override
+    public void authFailure() {
+    }
+
+    private void navigate(){
+        fireStoreService.getData(getString(R.string.users), fireAuthService.getUserId())
+                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if(!documentSnapshot.exists()){
+                            if (phoneAuth){
+                                navController.navigate(R.id.action_oneTimePasswordFragment_to_setupProfileFragment);
+
+                            }else{
+                                navController.navigate(R.id.action_loginFragment_to_setupProfileFragment);
+                            }
+                            return;
+                        }
+
+                        User user = documentSnapshot.toObject(User.class);
+
+                        Util.USER = user;
+                        authentication.updateFireUser(user.getName(), Uri.parse(user.getDpUrl()));
+                    }
+                });
+    }
+
+    private void makeUser(){
+
+        Util.USER.setUserId(fireAuthService.getUserId());
+        fireStoreService.setData(getString(R.string.users), fireAuthService.getUserId(), Util.USER)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        routing.navigate(MainActivity.class, true);
+                    }
+                });
     }
 }

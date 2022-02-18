@@ -16,7 +16,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.manacher.hammer.R;
-import com.manacher.hammer.Utils.PlayersAdapter;
+import com.manacher.hammer.adapters.PlayersAdapter;
 import com.manacher.hammer.Utils.Routing;
 import com.manacher.hammer.Utils.Util;
 import com.manacher.hammer.models.Player;
@@ -45,7 +45,7 @@ public class SelectPlayersActivity extends AppCompatActivity {
     }
 
     private void initialized(){
-        listView = findViewById(R.id.listView);
+        listView = findViewById(R.id.recyclerView);
         editText = findViewById(R.id.editText);
         addButton = findViewById(R.id.addButton);
         continueButton = findViewById(R.id.continueButton);

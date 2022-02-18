@@ -41,5 +41,10 @@
       <option name="name" value="maven3" />
       <option name="url" value="file:$PROJECT_DIR$/app/repo" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven3" />
+      <option name="name" value="maven3" />
+      <option name="url" value="file:$PROJECT_DIR$/nativetemplates/repo" />
+    </remote-repository>
   </component>
 </project>

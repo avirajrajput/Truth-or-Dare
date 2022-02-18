@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hammer</string>
+    <string name="app_name">Truth or dare?</string>
 
     <string name="play">Play</string>
     <string name="multiPlayer">MultiPlayer</string>
@@ -16,6 +16,11 @@
 
     <string name="calleeCollection">calleeCollection</string>
     <string name="callerCollection">callerCollection</string>
+    <string name="signal">signal</string>
+    <string name="users">users</string>
+    <string name="bottles">bottles</string>
+    <string name="appInfo">appInfo</string>
+    <string name="app_info">app_info</string>
 
     <string name="rooms">rooms</string>
 
@@ -24,5 +29,53 @@
 
     <string name="turn_username">test</string>
     <string name="turn_password">test123</string>
+    <string name="search">Search</string>
+
+    <string name="answer">answer</string>
+    <string name="v_s">V/S</string>
+    <string name="login">Login</string>
+    <string name="mobile_number">mobile number</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="otp">OTP</string>
+    <string name="profile_info">Profile Info</string>
+    <string name="enter_your_name">enter your name</string>
+
+    <string name="please_provide_your_name_and_an_optional_profile_photo">Please provide your name and an optional profile photo.</string>
+    <string name="name">Name</string>
+
+    <string name="open_field">open</string>
+    <string name="private_field">privateRoom</string>
+
+    <string name="otherId_field">otherId</string>
+    <string name="message">Message</string>
+    <string name="truth">Truth</string>
+    <string name="dare">Dare</string>
+    <string name="or">or</string>
+    <string name="male">MALE</string>
+    <string name="female">FEMALE</string>
+    <string name="other">OTHER</string>
+    <string name="age">age</string>
+    <string name="country">Country</string>
+    <string name="join_room">Join room</string>
+    <string name="room_id">Room Id</string>
+    <string name="enter_room_id">Enter room id</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+    <string name="create_room">Create Room</string>
+    <string name="loading">loading…</string>
+    <string name="disconnected">Disconnected</string>
+
+    <string name="Banner_unit">ca-app-pub-7689035579062097/5883910166</string>
+    <string name="Intersititial_unit">ca-app-pub-7689035579062097/3257746820</string>
+    <string name="Rewarded_unit">ca-app-pub-7689035579062097/3457057377</string>
+    <string name="Native_unit">ca-app-pub-7689035579062097/5988755902</string>
+
+
+    <string name="congratulations">Congratulations</string>
+    <string name="sign_out">SING OUT</string>
+    <string name="watch_video_and_get_50">Watch video and get 50</string>
+    <string name="share_with_friends">Share with friends</string>
+    <string name="online_line">Play online with random or friends, and enjoy</string>
 
 </resources>

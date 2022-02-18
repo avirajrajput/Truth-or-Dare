@@ -1,3 +1,4 @@
 
 rootProject.name = "Hammer"
 include ':app'
+include ':nativetemplates'
