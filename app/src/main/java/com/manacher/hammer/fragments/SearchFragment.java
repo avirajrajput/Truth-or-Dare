@@ -41,15 +41,13 @@ public class SearchFragment extends Fragment {
     public LinearLayout buttonView;
 
     private TextView status;
-
     private ImageView withFriend;
     private ImageView with10, with25, with50, with100;
-
     private PermissionsServices permissionsServices;
-
     private FireStoreService fireStoreService;
-
     public int with;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -69,6 +67,7 @@ public class SearchFragment extends Fragment {
 
     private void initialized(View view){
         this.activity = getActivity();
+        ((MultiPlayActivity)activity).FRAGMENT = activity.getString(R.string.SEARCH_FRAGMENT);
         ownImage = view.findViewById(R.id.ownImage);
         otherImage = view.findViewById(R.id.otherImage);
         ownName = view.findViewById(R.id.ownName);
@@ -109,7 +108,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 with = 10;
-                search(10);
+                search(with);
             }
         });
 
@@ -190,9 +189,5 @@ public class SearchFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.d("III99", "onPause: ");
-    }
+
 }

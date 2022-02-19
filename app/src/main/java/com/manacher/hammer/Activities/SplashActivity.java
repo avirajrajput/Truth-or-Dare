@@ -56,7 +56,7 @@ public class SplashActivity extends AppCompatActivity {
     private FireStoreService fireStoreService;
     private FireAuthService fireAuthService;
 
-    public static int SELECTED_BOTTLE = 1;
+    public static int SELECTED_BOTTLE = 0;
 
     private FusedLocationProviderClient locationProviderClient;
     private int LOCATION_CODE = 124;

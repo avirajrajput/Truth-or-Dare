@@ -28,6 +28,7 @@
         <entry key="app/src/main/res/drawable/ic_mic_on.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/drawable/ic_send.xml" value="0.26481481481481484" />
+        <entry key="app/src/main/res/drawable/ic_splash_background.xml" value="0.18888888888888888" />
         <entry key="app/src/main/res/drawable/ic_with_friend.xml" value="0.2611111111111111" />
         <entry key="app/src/main/res/drawable/number_player_style.xml" value="0.27037037037037037" />
         <entry key="app/src/main/res/drawable/other_message_style.xml" value="0.2611111111111111" />
@@ -35,6 +36,7 @@
         <entry key="app/src/main/res/drawable/progress_bar_style.xml" value="0.26851851851851855" />
         <entry key="app/src/main/res/drawable/round_corner.xml" value="0.26481481481481484" />
         <entry key="app/src/main/res/drawable/round_corner_25.xml" value="0.2611111111111111" />
+        <entry key="app/src/main/res/drawable/splash_background.xml" value="0.18888888888888888" />
         <entry key="app/src/main/res/drawable/truth_style.xml" value="0.2611111111111111" />
         <entry key="app/src/main/res/layout/activity_earn.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2953125" />
@@ -50,7 +52,7 @@
         <entry key="app/src/main/res/layout/fragment_chatter.xml" value="0.22407407407407406" />
         <entry key="app/src/main/res/layout/fragment_friend.xml" value="0.22037037037037038" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.28125" />
-        <entry key="app/src/main/res/layout/fragment_one_time_password.xml" value="0.28125" />
+        <entry key="app/src/main/res/layout/fragment_one_time_password.xml" value="0.2150950607839373" />
         <entry key="app/src/main/res/layout/fragment_play.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/fragment_setup_profile.xml" value="0.3351095643192872" />

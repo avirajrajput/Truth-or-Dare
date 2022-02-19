@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.manacher.hammer.R;
 import com.manacher.hammer.Utils.Routing;
 import com.manacher.hammer.Utils.Util;
@@ -46,6 +47,8 @@ public class SpinBottleActivity extends AppCompatActivity {
 
     private ArrayList<TextView> names;
 
+    private LinearLayout resultFrame;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +65,7 @@ public class SpinBottleActivity extends AppCompatActivity {
         spin = findViewById(R.id.spin);
         box = findViewById(R.id.box);
         result = findViewById(R.id.result);
+        resultFrame = findViewById(R.id.resultFrame);
 
         random = new Random();
         routing = new Routing(this);
@@ -71,7 +75,11 @@ public class SpinBottleActivity extends AppCompatActivity {
 
         names = new ArrayList<>();
         angle = (float) 360.0f / numberOfPlayers;
-        image.setImageDrawable(Util.getBottleList(this).get(SplashActivity.SELECTED_BOTTLE));
+        Glide.with(activity)
+                .load(SplashActivity.bottles.get(SplashActivity.SELECTED_BOTTLE).getUrl())
+                .into(image);
+
+        //image.setImageDrawable(Util.getBottleList(this).get(SplashActivity.SELECTED_BOTTLE));
 
         Util.setWidthHeight(box, SplashActivity.SCREEN_WIDTH, SplashActivity.SCREEN_WIDTH);
     }
@@ -102,6 +110,7 @@ public class SpinBottleActivity extends AppCompatActivity {
                     public void onAnimationStart(Animation animation) {
                         spin.setVisibility(View.INVISIBLE);
                         result.setVisibility(View.INVISIBLE);
+                        resultFrame.setVisibility(View.INVISIBLE);
 
                     }
 
@@ -110,6 +119,7 @@ public class SpinBottleActivity extends AppCompatActivity {
                     public void onAnimationEnd(Animation animation) {
                         spin.setVisibility(View.VISIBLE);
                         result.setVisibility(View.VISIBLE);
+                        resultFrame.setVisibility(View.VISIBLE);
 
                         int position = (int) (((newDirection % 360) / angle));
 
@@ -146,7 +156,7 @@ public class SpinBottleActivity extends AppCompatActivity {
             TextView text = new TextView(this);
 //            text.setText(String.valueOf(i + 1));
             text.setText(players.get(i).getName());
-            text.setTextColor(getResources().getColor(R.color.white));
+            text.setTextColor(getResources().getColor(R.color.grey));
             text.setRotation(180);
 //            text.setTextSize(30);
             text.setTextSize(20);

@@ -23,4 +23,9 @@
     <style name="CustomAlertDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:windowBackground">@drawable/round_corner</item>
     </style>
+
+    <!--Style for Splash Screen-->
+    <style name="SplashScreenTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name ="android:windowBackground"> @drawable/splash_background</item>
+    </style>
 </resources>

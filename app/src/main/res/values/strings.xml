@@ -77,5 +77,10 @@
     <string name="watch_video_and_get_50">Watch video and get 50</string>
     <string name="share_with_friends">Share with friends</string>
     <string name="online_line">Play online with random or friends, and enjoy</string>
+    <string name="enter_your_otp">Enter your OTP</string>
+
+    <string name="FRIEND_FRAGMENT">FRIEND_FRAGMENT</string>
+    <string name="SEARCH_FRAGMENT">SEARCH_FRAGMENT</string>
+    <string name="PLAY_FRAGMENT">PLAY_FRAGMENT</string>
 
 </resources>

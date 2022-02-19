@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView play;
     private ImageView multiplayer;
     private ImageView settings;
-    private CardView signOut;
+    private ImageView signOut;
     private ImageView options;
     private ImageView login;
     private Button addChipsButton;
@@ -42,8 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
     private FireStoreService fireStoreService;
     private SignalingService signalingService;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +71,20 @@ public class MainActivity extends AppCompatActivity {
         this.routing = new Routing(this);
         this.fireAuthService = new FireAuthService();
 
+        if(fireAuthService.getCurrentUser() != null){
+            login.setVisibility(View.GONE);
+            toolBar.setVisibility(View.VISIBLE);
+            signOut.setVisibility(View.VISIBLE);
+            Glide.with(this)
+                    .load(Util.USER.getDpUrl())
+                    .into(dp);
+            chips.setText(Util.coolFormat(Util.USER.getChips(), 0));
+        }else{
+            toolBar.setVisibility(View.GONE);
+            signOut.setVisibility(View.GONE);
+            login.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @Override
@@ -93,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
             login.setVisibility(View.VISIBLE);
         }
     }
+
 
     private void listener(){
         play.setOnClickListener(new View.OnClickListener() {

@@ -26,8 +26,7 @@
             <ImageView
                 android:id="@+id/bottle"
                 android:layout_width="70dp"
-                android:layout_height="200dp"
-                android:src="@drawable/b1"/>
+                android:layout_height="200dp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="80dp"

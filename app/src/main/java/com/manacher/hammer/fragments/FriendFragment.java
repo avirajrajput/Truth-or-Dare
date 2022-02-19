@@ -74,6 +74,7 @@ public class FriendFragment extends Fragment implements JoinDialog.JoinDialogLis
         }
 
         ((MultiPlayActivity)activity).isFriendEvent = true;
+        ((MultiPlayActivity)activity).FRAGMENT = activity.getString(R.string.FRIEND_FRAGMENT);
 
         fragmentManager = ((MultiPlayActivity)activity).getSupportFragmentManager();
         multiPlayActivity = ((MultiPlayActivity) activity);

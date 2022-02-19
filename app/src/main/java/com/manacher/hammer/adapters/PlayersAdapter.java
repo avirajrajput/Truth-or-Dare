@@ -22,8 +22,6 @@ public class PlayersAdapter extends BaseAdapter {
     public LayoutInflater layoutInflater;
     public Button continueButton;
 
-
-
     public PlayersAdapter(Activity activity, List<Player> list, Button continueButton){
         this.list = list;
         this.layoutInflater =(LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

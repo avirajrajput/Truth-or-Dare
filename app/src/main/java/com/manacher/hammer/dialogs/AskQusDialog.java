@@ -14,7 +14,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.fragment.app.Fragment;
 
+import com.manacher.hammer.Activities.SplashActivity;
 import com.manacher.hammer.R;
+import com.manacher.hammer.services.AdsService;
 
 public class AskQusDialog extends AppCompatDialogFragment {
     private Button yesButton;
@@ -23,6 +25,7 @@ public class AskQusDialog extends AppCompatDialogFragment {
     private String qus;
     private AskDisconnectedDialogListener listener;
     private Fragment context;
+
 
     public AskQusDialog(String qus, Fragment fragment) {
         this.qus = qus;
@@ -44,8 +47,11 @@ public class AskQusDialog extends AppCompatDialogFragment {
         qusText = view.findViewById(R.id.qus);
         qusText.setText(qus);
 
-
         listener.AskQusDialogButton(yesButton, noButton);
+
+        if(SplashActivity.APP_INFO.isAdsActive()){
+            new AdsService(getActivity()).loadNative(view.findViewById(R.id.template));
+        }
 
         return builder.create();
     }

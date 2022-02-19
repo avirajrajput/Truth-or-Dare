@@ -34,6 +34,9 @@ import com.manacher.rtc.webrtc.utils.IceCandidateServer;
 import com.manacher.rtc.webrtc.utils.Offer;
 import org.webrtc.DataChannel;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MultiPlayActivity extends AppCompatActivity implements RTCObserver, DataChannel.Observer, ConnectingListener {
 
 
@@ -58,6 +61,10 @@ public class MultiPlayActivity extends AppCompatActivity implements RTCObserver,
 
     public LinearLayout progressBar;
 
+    private FireStoreService fireStoreService;
+
+    public String FRAGMENT;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +80,7 @@ public class MultiPlayActivity extends AppCompatActivity implements RTCObserver,
         this.progressBar = findViewById(R.id.progressBar);
         this.routing = new Routing(this);
         this.rtc = new AndroidRTC(this);
+        this.fireStoreService = new FireStoreService();
         this.connectingService = new ConnectingService(this);
     }
 
@@ -191,6 +199,13 @@ public class MultiPlayActivity extends AppCompatActivity implements RTCObserver,
 
         }else{
             super.onBackPressed();
+        }
+
+        if(FRAGMENT.compareTo(getString(R.string.SEARCH_FRAGMENT)) == 0){
+            Map<String, Object> map = new HashMap<>();
+            map.put("open", false);
+
+            fireStoreService.updateData(getString(R.string.signal), Util.USER.getUserId(), map);
         }
     }
 

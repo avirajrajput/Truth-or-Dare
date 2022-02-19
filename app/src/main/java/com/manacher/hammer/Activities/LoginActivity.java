@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -27,6 +29,8 @@ public class LoginActivity extends AppCompatActivity implements AuthListener {
     private Routing routing;
     private  FireStoreService fireStoreService;
 
+    private LinearLayout progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +39,19 @@ public class LoginActivity extends AppCompatActivity implements AuthListener {
         fireAuthService = new FireAuthService();
         fireStoreService = new FireStoreService();
 
+        progressBar = findViewById(R.id.progrssBar);
+
         routing = new Routing(this);
     }
 
     @Override
     public void authSuccessFul(Task<AuthResult> task) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                progressBar.setVisibility(View.VISIBLE);
+            }
+        });
         navigate();
     }
 
@@ -50,6 +62,12 @@ public class LoginActivity extends AppCompatActivity implements AuthListener {
 
     @Override
     public void authFailure() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                progressBar.setVisibility(View.GONE);
+            }
+        });
     }
 
     private void navigate(){
@@ -58,6 +76,12 @@ public class LoginActivity extends AppCompatActivity implements AuthListener {
                     @Override
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if(!documentSnapshot.exists()){
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    progressBar.setVisibility(View.GONE);
+                                }
+                            });
                             if (phoneAuth){
                                 navController.navigate(R.id.action_oneTimePasswordFragment_to_setupProfileFragment);
 
@@ -82,6 +106,13 @@ public class LoginActivity extends AppCompatActivity implements AuthListener {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                progressBar.setVisibility(View.GONE);
+                            }
+                        });
+
                         routing.navigate(MainActivity.class, true);
                     }
                 });

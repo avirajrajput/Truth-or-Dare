@@ -33,25 +33,6 @@ public class Util {
     public static String WOMEN_DP = "https://firebasestorage.googleapis.com/v0/b/truth-or-dare-application.appspot.com/o/default_dp%2Ficons8-female-profile-96.png?alt=media&token=1ea3cf36-31ce-48c2-8a2f-21daf2b7cd2e";
     public static String MEN_DP = "https://firebasestorage.googleapis.com/v0/b/truth-or-dare-application.appspot.com/o/default_dp%2Ficons8-male-user-96.png?alt=media&token=67babd65-3e51-444e-a53b-ff0743e88fac";
 
-    @SuppressLint("UseCompatLoadingForDrawables")
-    public static List<Drawable> getBottleList(Activity activity){
-
-        List<Drawable> list = new ArrayList<>();
-        list.add(activity.getDrawable(R.drawable.b1));
-        list.add(activity.getDrawable(R.drawable.b2));
-        list.add(activity.getDrawable(R.drawable.b3));
-        list.add(activity.getDrawable(R.drawable.b4));
-        list.add(activity.getDrawable(R.drawable.b5));
-        list.add(activity.getDrawable(R.drawable.b6));
-        list.add(activity.getDrawable(R.drawable.b7));
-        list.add(activity.getDrawable(R.drawable.b8));
-        list.add(activity.getDrawable(R.drawable.b9));
-        list.add(activity.getDrawable(R.drawable.b10));
-        list.add(activity.getDrawable(R.drawable.b11));
-
-        return list;
-    }
-
     public static List<Integer> getPlayersNumberList(){
         List<Integer> list = new ArrayList<>();
         for(int i = 2; i <= 10; i++){

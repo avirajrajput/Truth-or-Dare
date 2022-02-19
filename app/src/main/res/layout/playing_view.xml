@@ -181,8 +181,7 @@
                 android:id="@+id/bottle"
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/b3" />
+                android:scaleType="centerInside" />
         </LinearLayout>
 
     </RelativeLayout>

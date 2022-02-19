@@ -106,6 +106,7 @@ public class PlayFragment extends Fragment implements AskQusDialog.AskDisconnect
         fragmentManager = ((MultiPlayActivity)activity).getSupportFragmentManager();
         this.dataChannel = ((MultiPlayActivity)activity).dataChannel;
 
+        ((MultiPlayActivity)activity).FRAGMENT = activity.getString(R.string.PLAY_FRAGMENT);
         ownImage = view.findViewById(R.id.ownImage);
         otherImage = view.findViewById(R.id.otherImage);
         ownName = view.findViewById(R.id.ownName);
@@ -501,7 +502,7 @@ public class PlayFragment extends Fragment implements AskQusDialog.AskDisconnect
             return;
         }
 
-        askDisconnectCard= new AskQusDialog("Do want to disconnect ?", this);
+        askDisconnectCard= new AskQusDialog("Do you want to disconnect ?", this);
         askDisconnectCard.setCancelable(false);
         askDisconnectCard.show(fragmentManager, "disconnecting dialog");
     }
